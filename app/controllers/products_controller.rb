@@ -1,6 +1,12 @@
 class ProductsController < ApplicationController
   def new
-  	@product = Product.new
+  	if params[:id]
+  		@category = Category.find params[:id]
+  		@product = @category.products.new
+  	else
+  		@product = Product.new
+  	end
+  	
   end
 
   def create
@@ -8,6 +14,15 @@ class ProductsController < ApplicationController
   		redirect_to root_path
   	end
   end
+  def index
+  	@products = Product.all
+  end
+
+  def category_products
+  	@category = Category.find params[:id]
+  	@products = @category.products
+  end
+
 
 private
   def product_params

@@ -17,6 +17,8 @@
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td><%= link_to 'Show Products', category_products_product_path(category) %></td>
+         <td><%= link_to 'Add Products', product_path(category) %></td>
       </tr>
     <% end %>
   </tbody>

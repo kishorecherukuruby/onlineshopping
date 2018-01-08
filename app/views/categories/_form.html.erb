@@ -15,6 +15,12 @@
     <%= form.label :name %>
     <%= form.text_field :name, id: :category_name %>
   </div>
+<h2>Add Product</h2>
+  <%= form.fields_for :products do |ff| %>
+    <p>Name : <%= ff.text_field :name %></p>
+    <p>Price : <%= ff.text_field :price %></p>
+    <p>Quantity : <%= ff.text_field :quantity %></p>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
